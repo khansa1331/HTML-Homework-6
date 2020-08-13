@@ -1,0 +1,13 @@
+.name_results{
+    background-color: #3392FF;
+    width: 400px;
+}
+
+.math_results {
+    background-color: #FFFC33;
+    width: 400px;
+}
+
+body {
+    background-color: #FF3365;
+}

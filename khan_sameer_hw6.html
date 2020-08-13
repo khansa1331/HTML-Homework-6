@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Web Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+    <header>
+        <h1>Calculator</h1>
+        </header>
+    
+        <main>
+           
+            
+            <form id="firstAndLastName">
+            <label for="firstName">First Name: </label>
+                <input type="text" id="firstName">
+            <br><br><label for="lastName">Last Name: </label>
+                <input type="text" id="lastName">
+            
+            <p><button type="button" onclick="formatName()">Format Name</button></p>
+             </form>
+            <div id="nameResults" class="name_results"></div> <!-- End of results div -->
+            
+            
+           
+            
+           
+        <form id="addNumbers">
+            <label for="numEntry">Enter 3 Numbers</label>
+            <input type="text" id="txtFirstEntry" size="3">
+            <input type="text" id="txtSecondEntry" size="3">
+            <input type="text" id="txtThirdEntry" size="3"> <br>
+            <p><button type="button" onclick="addNumbers()">Add the Numbers</button></p>
+            </form>
+             <div id="output" class="math_results"></div> <!-- End of results div -->
+            
+            
+            <script>
+                
+                
+                function addNumbers() {
+                    var num1, num2, num3;
+                    num1 = document.getElementById("txtFirstEntry").value; //gets number value from the first text field
+                    num1 = parseFloat(num1); //converts the string to an int
+                    num2 = document.getElementById("txtSecondEntry").value; //gets number value from the second text field.
+                    num2 = parseFloat(num2); //converts the string to an int.
+                    num3 = document.getElementById("txtThirdEntry").value //gets number value from the third text field
+                    num3 = parseFloat(num3); //converts the string to an int.
+                    var addNumbers = parseFloat(num1+num2+num3); //adds the numbers
+                    var numberResult = "the sum of " + num1 + " and " + num2 + " and " + num3 + " is " + addNumbers + "."; //concationation string.
+                    
+                document.getElementById("output").innerHTML = numberResult; //displays output
+                }
+                
+                 function formatName() {
+                    var firstName = document.getElementById("firstName").value;//gets first name value from the first text field
+                    
+                    var lastName = document.getElementById("lastName").value;//gets last name value from the second text field
+                    
+                    var fullName = "Your name is: "+lastName+", "+firstName+"."; //displaying the result
+                    
+                    document.getElementById("output").innerHTML = fullName; //displays output
+                }
+                
+            </script>
+        </main>
+        
+    </body>
+
+</html>
+<!-- Parsing was important since I would not be able to do any math functions from the number values that I got from the text fields since javascript will read them as strings instead of integers. This would contationate the 3 numbers for my addNumbers function and give an error for my multiNumbers function since you are not able to multiply strings together. It would not make sense to put a zip folder in the public_html folder since you can't open a zip folder using a browser. Instead you can create a folder to put your html documents in, in order to open them which can be accessed in the URL. It would make sense to use parseFloat since it wouldn't make sense to round up which is what parseInt does to a decimal value when both multiplying or adding numbers. -->
